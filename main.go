@@ -22,12 +22,12 @@ func main() {
 	port := os.Getenv("PORT")
 
 	if port == "" {
-		port = ":8080"
+		port = "8080"
 		log.Printf("PORT set to %v\n", port)
 	}
 
 	mux := http.NewServeMux()
 	mux.Handle("/", clientHandler())
-	log.Printf("http://localhost%v\n", port)
-	http.ListenAndServe(port, mux)
+	log.Printf("http://localhost:%v\n", port)
+	http.ListenAndServe(":"+port, mux)
 }
