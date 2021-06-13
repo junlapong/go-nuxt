@@ -5,6 +5,7 @@ import (
 	"io/fs"
 	"log"
 	"net/http"
+	"os"
 )
 
 //go:embed ui/dist/*
@@ -17,7 +18,14 @@ func clientHandler() http.Handler {
 }
 
 func main() {
-	port := ":8080"
+
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = ":8080"
+		log.Printf("PORT set to %v\n", port)
+	}
+
 	mux := http.NewServeMux()
 	mux.Handle("/", clientHandler())
 	log.Printf("http://localhost%v\n", port)
