@@ -1,0 +1,14 @@
+# https://devcenter.heroku.com/articles/heroku-yml-build-manifest
+# Officially unsupported, but works.
+
+# setup:
+#   addons:
+#   - plan: heroku-postgresql
+#     as: DATABASE
+
+build:
+  languages:
+    - go
+
+run:
+  web: go-nuxt
