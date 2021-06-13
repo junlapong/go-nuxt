@@ -1,5 +1,6 @@
 APP_NAME=go-nuxt
 
+GOVERSION=1.16.5
 GO_BUILD_ENV := CGO_ENABLED=0 GOOS=linux GOARCH=amd64
 DOCKER_BUILD=$(shell pwd)/.docker_build
 DOCKER_CMD=$(DOCKER_BUILD)/$(APP_NAME)
