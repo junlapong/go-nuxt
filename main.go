@@ -2,8 +2,8 @@ package main
 
 import (
 	"embed"
-	"fmt"
 	"io/fs"
+	"log"
 	"net/http"
 )
 
@@ -20,6 +20,6 @@ func main() {
 	port := ":8080"
 	mux := http.NewServeMux()
 	mux.Handle("/", clientHandler())
-	fmt.Printf("http://localhost%v\n", port)
+	log.Printf("http://localhost%v\n", port)
 	http.ListenAndServe(port, mux)
 }
